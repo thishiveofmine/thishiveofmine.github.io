@@ -1,5 +1,5 @@
-https://this=hive-of-mine.art/
-https://this=hive-of-mine.art/index.html
-https://this=hive-of-mine.art/index-en.html
-https://this=hive-of-mine.art/datenschutz.html
-https://this=hive-of-mine.art/impressum.html
+https://this-hive-of-mine.art/
+https://this-hive-of-mine.art/index.html
+https://this-hive-of-mine.art/index-en.html
+https://this-hive-of-mine.art/datenschutz.html
+https://this-hive-of-mine.art/impressum.html
