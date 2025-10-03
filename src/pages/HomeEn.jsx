@@ -80,18 +80,6 @@ export default function HomeEn() {
                         </div>
                     </div>
                 </div>
-
-                <Section title="Bases" img="/photo/base-3.png" reverse>
-                    <p className="text-lg text-gray-100">
-                        Various thematic bases: field, seabed, lava, dunes, surface of Mars,
-                        desert, snow and ice, battlefield, abandoned buildings, wreckage,
-                        apocalypse, cemetery.
-                    </p>
-                    <p className="text-lg text-gray-100">
-                        The most used materials are sand, grass, flowers, bushes, snow,
-                        skulls, epoxy resin, cracks.
-                    </p>
-                </Section>
             </div>
 
             <div className="container my-12">

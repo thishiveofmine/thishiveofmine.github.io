@@ -1,33 +1,46 @@
 import React from "react";
+import Masonry from "../components/ui/Masonry.jsx";
 
-const colA = ["31.png", "9.png", "11.png", "18.png", "12.png", "13.jpg", "14.jpg", "1.jpg", "16.jpg", "17.jpg", "19.jpg"];
-const colB = ["32.png", "20.png", "21.png", "29.png", "24.jpg", "22.jpg", "23.jpg", "25.jpg", "26.jpg", "27.jpg", "28.jpg", "30.jpg"];
-const colC = ["33.png", "15.png", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "10.jpg"];
+// Use Vite's glob API (Vite 4/5+): eager + return URLs directly (using query/import instead of deprecated as)
+const modules = import.meta.glob("../assets/tiles/*.{png,jpg,jpeg,webp}", { eager: true, query: "?url", import: "default" });
 
-function Col({ files }) {
-    return (
-        <div className="flex flex-col gap-4">
-            {files.map((f) => (
-                <img
-                    key={f}
-                    src={`/photo/tiles/${f}`}
-                    alt={f}
-                    className="w-full h-auto rounded"
-                    loading="lazy"
-                />
-            ))}
-        </div>
-    );
-}
+// modules is: { './foo.png': '/assets/foo.hash.png', ... }
+const files = Object.entries(modules)
+  .map(([k, url]) => ({ path: url, name: k.split('/').pop() }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+
+// Build items array for Masonry. height is optional — Masonry will use a default if not present.
+const items = files.map((f, i) => ({
+  id: String(i + 1),
+  img: f.path,
+  url: f.path,
+  // height: undefined, // allow Masonry to compute a sensible default
+}));
 
 export default function Gallery() {
+  if (!items.length) {
     return (
-        <section className="mt-8">
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <Col files={colA} />
-                <Col files={colB} />
-                <Col files={colC} />
-            </div>
-        </section>
+      <section className="mt-8">
+        <p className="text-gray-400">No images found in <code>src/assets/tiles</code>.</p>
+      </section>
     );
+  }
+
+  return (
+    <section className="mt-8">
+      <Masonry
+        items={items}
+        gapX={16}
+        gapY={16}
+        ease="power3.out"
+        duration={0.6}
+        stagger={0.05}
+        animateFrom="bottom"
+        scaleOnHover={true}
+        hoverScale={0.95}
+        blurToFocus={true}
+        colorShiftOnHover={false}
+      />
+    </section>
+  );
 }

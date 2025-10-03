@@ -80,18 +80,6 @@ export default function HomeDe() {
             </div>
           </div>
         </div>
-
-        <Section title="Bases" img="/photo/base-3.png" reverse>
-          <p className="text-lg text-gray-100">
-            Verschiedene thematische Bases: Feld, Meeresboden, Lava, Dünen,
-            Marsoberfläche, Wüste, Schnee und Eis, Schlachtfeld, verlassene
-            Gebäude, Trümmer, Apokalypse, Friedhof.
-          </p>
-          <p className="text-lg text-gray-100">
-            Die am häufigsten verwendeten Materialien sind Sand, Gras, Blumen,
-            Büsche, Schnee, Totenköpfe usw.
-          </p>
-        </Section>
       </div>
 
       <div className="container my-12">

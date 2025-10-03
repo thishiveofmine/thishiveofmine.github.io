@@ -6,6 +6,7 @@ import { presetWind3 } from '@unocss/preset-wind3'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/thishiveofmine.github.io/',
   plugins: [
     react(),
     UnoCSS({
